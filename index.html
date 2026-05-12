@@ -265,8 +265,17 @@ nav.scrolled {
 }
 
 /* ===== SECTIONS ===== */
-section { display:none; }
-section.active { display:block; animation:pageIn .65s var(--ease-out) forwards; }
+/* FIX 1 — Safari : translateZ(0) force un nouveau layer GPU, évite le glitch de rendu */
+section {
+  display:none;
+  -webkit-overflow-scrolling: touch;
+}
+section.active {
+  display:block;
+  animation:pageIn .65s var(--ease-out) forwards;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
 #section-home { display:block; }
 @keyframes pageIn { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
 
@@ -1124,13 +1133,9 @@ footer {
           <feMerge><feMergeNode in="gblur"/><feMergeNode in="SourceGraphic"/></feMerge>
         </filter>
       </defs>
-      <!-- Shadow -->
       <ellipse cx="110" cy="312" rx="52" ry="8" fill="url(#vg1)" opacity=".2"/>
-      <!-- Body -->
       <path d="M68 310 Q55 258 58 200 Q60 162 72 142 Q90 114 98 88 Q105 65 108 36 L112 36 Q115 65 122 88 Q130 114 148 142 Q160 162 162 200 Q165 258 152 310 Z" fill="url(#vg1)" opacity=".95" filter="url(#vf1)"/>
-      <!-- Highlight -->
       <path d="M68 310 Q55 258 58 200 Q60 162 72 142 Q90 114 98 88 Q105 65 108 36 L112 36 Q115 65 122 88 Q130 114 148 142 Q160 162 162 200 Q165 258 152 310 Z" fill="url(#vg2)"/>
-      <!-- Layers -->
       <path d="M70 300 Q110 296 150 300" stroke="#c9a96e" stroke-width=".6" opacity=".35"/>
       <path d="M68 288 Q110 284 152 288" stroke="#c9a96e" stroke-width=".6" opacity=".35"/>
       <path d="M67 276 Q110 272 153 276" stroke="#c9a96e" stroke-width=".5" opacity=".4"/>
@@ -1148,11 +1153,8 @@ footer {
       <path d="M98 103 Q110 99 122 103" stroke="#c9a96e" stroke-width=".4" opacity=".5"/>
       <path d="M102 90 Q110 87 118 90" stroke="#c9a96e" stroke-width=".4" opacity=".45"/>
       <path d="M105 77 Q110 74 115 77" stroke="#c9a96e" stroke-width=".3" opacity=".4"/>
-      <!-- Shine -->
       <path d="M76 190 Q82 110 94 55" stroke="rgba(255,245,200,0.1)" stroke-width="9" stroke-linecap="round"/>
-      <!-- Neck -->
       <ellipse cx="110" cy="36" rx="14" ry="4.5" fill="#c9a96e" opacity=".8" filter="url(#vglow)"/>
-      <!-- Rim glow -->
       <ellipse cx="110" cy="36" rx="14" ry="4.5" fill="none" stroke="rgba(240,220,160,0.5)" stroke-width=".8"/>
     </svg>
 
@@ -1206,6 +1208,7 @@ footer {
   </nav>
 
   <!-- ===== HOME ===== -->
+  <!-- FIX 2 — Le footer est sorti de #section-home et placé dans #main-wrapper -->
   <section id="section-home" class="active">
     <div class="hero-scene">
       <canvas id="hero-canvas"></canvas>
@@ -1266,54 +1269,8 @@ footer {
         </div>
       </div>
     </div>
-
-    <footer>
-      <div class="footer-top">
-        <div>
-          <div class="footer-logo">STRATA</div>
-          <p class="footer-tagline">L'art de la matière en couches infinies. Chaque vase STRATA est une sculpture unique, née de la fusion entre technologie de pointe et savoir-faire artisanal français.</p>
-          <div class="footer-socials">
-            <a class="social-btn" href="#" title="Instagram">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
-            </a>
-            <a class="social-btn" href="#" title="Pinterest">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.853 0 1.267.641 1.267 1.408 0 .858-.546 2.14-.828 3.33-.236.995.499 1.806 1.476 1.806 1.771 0 3.135-1.867 3.135-4.56 0-2.384-1.714-4.052-4.16-4.052-2.833 0-4.495 2.124-4.495 4.32 0 .856.33 1.773.741 2.274a.3.3 0 01.069.285c-.076.313-.244.995-.277 1.134-.044.183-.146.222-.337.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.966-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.522 0 10-4.477 10-10S17.522 2 12 2z"/></svg>
-            </a>
-          </div>
-        </div>
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <a href="#" onclick="go('home')">Accueil</a>
-          <a href="#" onclick="go('about')">À Propos</a>
-          <a href="#" onclick="go('catalogue')">Collection</a>
-          <a href="#" onclick="go('faq')">FAQ</a>
-        </div>
-        <div class="footer-col">
-          <h4>Services</h4>
-          <a href="#">Commande sur mesure</a>
-          <a href="#">Programme fidélité</a>
-          <a href="#">Livraison offerte dès 89€</a>
-          <a href="#">Retours gratuits 14j</a>
-        </div>
-        <div class="footer-col">
-          <h4>Newsletter</h4>
-          <p style="font-size:.78rem;color:var(--text-dim);line-height:1.7;margin-bottom:1rem;">Nouvelles créations en avant-première.</p>
-          <div class="nl-form">
-            <input type="email" placeholder="votre@email.com">
-            <button>→</button>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2025 STRATA. Tous droits réservés. Conçu et fabriqué en France.</p>
-        <div class="footer-legal">
-          <a href="#">Mentions légales</a>
-          <a href="#">Confidentialité</a>
-          <a href="#">CGV</a>
-        </div>
-      </div>
-    </footer>
   </section>
+  <!-- FIN section-home — le footer est maintenant en dehors -->
 
   <!-- ===== CATALOGUE ===== -->
   <section id="section-catalogue">
@@ -1615,6 +1572,55 @@ footer {
     </div>
   </section>
 
+  <!-- FIX 2 — Footer sorti de #section-home, placé ici dans #main-wrapper -->
+  <!-- Il s'affiche sur home, about, catalogue, faq. Masqué sur product/checkout/profile via JS -->
+  <footer id="site-footer">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">STRATA</div>
+        <p class="footer-tagline">L'art de la matière en couches infinies. Chaque vase STRATA est une sculpture unique, née de la fusion entre technologie de pointe et savoir-faire artisanal français.</p>
+        <div class="footer-socials">
+          <a class="social-btn" href="#" title="Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+          </a>
+          <a class="social-btn" href="#" title="Pinterest">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.853 0 1.267.641 1.267 1.408 0 .858-.546 2.14-.828 3.33-.236.995.499 1.806 1.476 1.806 1.771 0 3.135-1.867 3.135-4.56 0-2.384-1.714-4.052-4.16-4.052-2.833 0-4.495 2.124-4.495 4.32 0 .856.33 1.773.741 2.274a.3.3 0 01.069.285c-.076.313-.244.995-.277 1.134-.044.183-.146.222-.337.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.966-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.522 0 10-4.477 10-10S17.522 2 12 2z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="#" onclick="go('home')">Accueil</a>
+        <a href="#" onclick="go('about')">À Propos</a>
+        <a href="#" onclick="go('catalogue')">Collection</a>
+        <a href="#" onclick="go('faq')">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#">Commande sur mesure</a>
+        <a href="#">Programme fidélité</a>
+        <a href="#">Livraison offerte dès 89€</a>
+        <a href="#">Retours gratuits 14j</a>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p style="font-size:.78rem;color:var(--text-dim);line-height:1.7;margin-bottom:1rem;">Nouvelles créations en avant-première.</p>
+        <div class="nl-form">
+          <input type="email" placeholder="votre@email.com">
+          <button>→</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 STRATA. Tous droits réservés. Conçu et fabriqué en France.</p>
+      <div class="footer-legal">
+        <a href="#">Mentions légales</a>
+        <a href="#">Confidentialité</a>
+        <a href="#">CGV</a>
+      </div>
+    </div>
+  </footer>
+
 </div><!-- end #main-wrapper -->
 
 <!-- CART SIDEBAR -->
@@ -1783,7 +1789,6 @@ function mm(open) {
   const W = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
   W(); window.addEventListener('resize', W);
 
-  // Particles
   const pts = Array.from({length: isMob()?30:60}, () => ({
     x: Math.random()*canvas.width, y: Math.random()*canvas.height,
     vx: (Math.random()-.5)*.3, vy: (Math.random()-.5)*.3,
@@ -1810,13 +1815,11 @@ function mm(open) {
     if(prog >= 100) { clearInterval(progTimer); }
   }, 60);
 
-  // Vase reveal
   setTimeout(() => {
     document.getElementById('intro-bg-gradient').classList.add('lit');
     document.getElementById('intro-vase-svg').classList.add('reveal');
   }, 400);
 
-  // Brand name
   setTimeout(() => {
     const letters = 'STRATA'.split('');
     const container = document.getElementById('intro-brand-name');
@@ -1828,7 +1831,6 @@ function mm(open) {
     });
   }, 1600);
 
-  // Divider + sub
   setTimeout(() => {
     document.getElementById('intro-brand-block').classList.add('show');
     document.getElementById('intro-divider').style.width = '180px';
@@ -1837,7 +1839,6 @@ function mm(open) {
     document.getElementById('intro-sub').style.opacity = '1';
   }, 2600);
 
-  // Exit
   setTimeout(() => {
     clearInterval(ptAnim);
     document.getElementById('intro').classList.add('out');
@@ -1891,6 +1892,10 @@ function startHeroCanvas(){
 
 // ===== SECTION ROUTING =====
 const allSections = ['home','catalogue','product','about','checkout','profile','faq'];
+
+// FIX 3 — Sections où le footer doit être visible
+const sectionsWithFooter = ['home','catalogue','about','faq'];
+
 function go(name){
   allSections.forEach(s => {
     const el = document.getElementById('section-'+s);
@@ -1898,6 +1903,13 @@ function go(name){
   });
   const t = document.getElementById('section-'+name);
   if(t){ t.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+
+  // FIX 3 — Afficher/masquer le footer selon la section active
+  const footer = document.getElementById('site-footer');
+  if(footer){
+    footer.style.display = sectionsWithFooter.includes(name) ? '' : 'none';
+  }
+
   if(name==='checkout') renderCheckoutSummary();
   initScrollReveal();
   document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
@@ -1976,7 +1988,6 @@ function openProduct(id){
   const p = products.find(x => x.id===id);
   if(!p) return;
 
-  // Gallery
   const mainImg = document.getElementById('gallery-main-img');
   const placeholder = document.getElementById('gallery-placeholder');
   if(p.img && p.img.trim()){
@@ -1986,13 +1997,11 @@ function openProduct(id){
     mainImg.style.display='none'; placeholder.style.display='flex';
   }
 
-  // Thumbs
   const thumbs = document.getElementById('gallery-thumbs');
   thumbs.innerHTML = p.imgs && p.imgs.length
     ? p.imgs.map((img,i) => `<div class="gallery-thumb ${i===0?'active':''}" onclick="switchGallery(this,'${img}')"><img src="${img}" alt="${p.name}"></div>`).join('')
     : `<div class="gallery-thumb active"><div style="width:80px;height:80px;background:var(--dark3);display:flex;align-items:center;justify-content:center;"><svg width="20" height="28" viewBox="0 0 220 320" fill="none"><path d="M68 310 Q55 258 58 200 Q60 162 72 142 Q90 114 98 88 Q105 65 108 36 L112 36 Q115 65 122 88 Q130 114 148 142 Q160 162 162 200 Q165 258 152 310 Z" fill="rgba(201,169,110,0.4)"/></svg></div></div>`;
 
-  // Details
   const stockColor = p.stock <= 5 ? '#e07070' : p.stock <= 15 ? '#c9a96e' : '#78c878';
   document.getElementById('product-details').innerHTML = `
     <div class="pd-eyebrow">${p.mat}</div>
@@ -2022,7 +2031,6 @@ function openProduct(id){
     </div>
   `;
 
-  // Story
   document.getElementById('pd-story').innerHTML = `
     <div class="pd-story-grid">
       <div>
@@ -2037,7 +2045,6 @@ function openProduct(id){
     </div>
   `;
 
-  // Related
   const related = products.filter(x => x.id !== p.id && x.cat === p.cat).slice(0,3);
   document.getElementById('related-grid').innerHTML = related.map(r => buildProductCard(r, true)).join('');
 
