@@ -1666,146 +1666,274 @@ footer {
 <script>
 // ===== PRODUCTS DATA =====
 const products = [
-  {
-    id:1,
-    name:'Vanta',
-    mat:'PLA Biosourcé',
-    badge:'new',
-    desc:'PLA biosourcé mat, structure ajourée organique et finition noire profonde. H 28cm, Ø 12cm.',
-    price:79,
-    cat:'pla',
-    img:'https://cdn.phototourl.com/member/2026-05-12-72b95db1-a596-4ff0-b5c6-f1fc52cff07b.jpg',
-    dims:'H 28cm, Ø 12cm',
-    poids:'340g',
-    matiere:'PLA biosourcé mat',
-    temps:'8h d\'impression',
-    edition:'Série — 80 exemplaires',
-    stock:14,
-    desc_long:'Vanta mêle élégance organique et géométrie contemporaine à travers une structure ajourée inspirée des formes naturelles. Sa silhouette sculpturale diffuse subtilement la lumière et crée des jeux d’ombres raffinés selon l’angle et l’environnement. Imprimé en PLA biosourcé puis travaillé à la main dans notre atelier, chaque exemplaire possède une texture et une présence uniques, pensées pour sublimer les intérieurs modernes et minimalistes.',
-    story:'Pensé comme une rencontre entre design paramétrique et artisanat contemporain, Vanta explore la notion de légèreté à travers une structure ouverte et fluide. Chaque courbe a été soigneusement travaillée pour donner l’impression d’une matière en mouvement, presque vivante. Après plusieurs prototypes et ajustements manuels, la forme finale est devenue l’une des signatures visuelles les plus emblématiques de la collection STRATA.',
-    imgs:['https://cdn.phototourl.com/member/2026-05-12-72b95db1-a596-4ff0-b5c6-f1fc52cff07b.jpg' ]},
-  {
-    id:2,
-    name:'Eden Loop',
-    mat:'Résine Premium',
-    badge:'best',
-    desc:'Fontaine circulaire sculpturale inspirée des jardins zen japonais. Écoulement d’eau silencieux et structure texturée noire mate. H 32cm, Ø 10cm.',
-    price:129,
-    cat:'resine',
-    img:'https://cdn.phototourl.com/member/2026-05-12-926d98b8-784d-4173-9830-437736c5c0c6.jpg',
-    dims:'H 32cm, Ø 10cm',
-    poids:'480g',
-    matiere:'Résine photopolymère premium',
-    temps:'12h d\'impression',
-    edition:'Bestseller — 50 ex. par saison',
-    stock:7,
-    desc_long:'Eden Loop transforme l’eau en élément architectural vivant. Sa structure circulaire minimaliste crée un flux continu et apaisant, tandis que sa texture organique noire mate absorbe subtilement la lumière. Pensée comme une pièce décorative méditative, cette fontaine contemporaine apporte calme et profondeur aux espaces modernes.',
-    story:'Inspirée des jardins japonais et du mouvement perpétuel de l’eau, Eden Loop a été imaginée comme une sculpture immersive plutôt qu’un simple objet décoratif. Chaque courbe a été étudiée pour créer une circulation fluide et silencieuse, donnant l’impression d’un cycle infini entre matière, lumière et nature.',
-    imgs:[
-      'https://cdn.phototourl.com/member/2026-05-12-926d98b8-784d-4173-9830-437736c5c0c6.jpg']
-  },
-  {
-  id:3,
-  name:'Obsidian Bloom',
-  mat:'PLA Biosourcé',
-  badge:'new',
-  desc:'Vase sculptural aux cavités organiques inspirées des structures minérales naturelles. Texture noire mate profonde et silhouette contemporaine. H 30cm, Ø 14cm.',
-  price:89,
-  cat:'pla',
-  img:'https://cdn.phototourl.com/member/2026-05-12-491e3e99-ba89-492e-83e6-7a311d27cb3e.jpg',
-  dims:'H 30cm, Ø 14cm',
-  poids:'410g',
-  matiere:'PLA biosourcé mat',
-  temps:'10h d\'impression',
-  edition:'Édition Atelier — 60 exemplaires',
-  stock:11,
-  desc_long:'Obsidian Bloom joue avec les pleins et les vides à travers une structure organique sculptée comme une roche façonnée par le temps. Sa surface texturée capte subtilement la lumière et accentue la profondeur de chaque courbe. Pensé comme une pièce décorative forte et minimaliste, ce vase transforme instantanément une composition florale en sculpture contemporaine.',
-  story:'Inspiré des formations volcaniques et des textures minérales brutes, Obsidian Bloom est né d’une recherche autour des contrastes entre douceur visuelle et géométrie complexe. Chaque ouverture a été modélisée pour créer un équilibre naturel entre ombre, lumière et matière.',
-  imgs:['https://cdn.phototourl.com/member/2026-05-12-491e3e99-ba89-492e-83e6-7a311d27cb3e.jpg']
-},
+
 {
-  id:4,
+
+  id:1,
+
+  name:'Vanta',
+
+  mat:'PLA Biosourcé',
+
+  badge:'new',
+
+  desc:'Vase ajouré organique inspiré des structures cellulaires naturelles. Finition noire mate profonde et silhouette sculpturale élégante. H 28cm, Ø 12cm.',
+
+  price:79,
+
+  cat:'pla',
+
+  img:'https://cdn.phototourl.com/free/2026-05-12-e715a0a3-0933-48ae-b705-81570a8b5353.png',
+
+  dims:'H 28cm, Ø 12cm',
+
+  poids:'340g',
+
+  matiere:'PLA biosourcé mat',
+
+  temps:'8h d\'impression',
+
+  edition:'Série Signature — 80 exemplaires',
+
+  stock:14,
+
+  desc_long:'Vanta mêle design organique et minimalisme contemporain à travers une structure ajourée aux courbes fluides. Ses ouvertures sculptées créent un jeu subtil entre lumière et profondeur, donnant au vase une présence architecturale forte tout en conservant une sensation de légèreté visuelle.',
+
+  story:'Inspiré des formes microscopiques et des textures naturelles observées dans les structures minérales, Vanta a été conçu comme une pièce décorative immersive où chaque ouverture participe à l’équilibre global du design.',
+
+  imgs:['https://cdn.phototourl.com/free/2026-05-12-e715a0a3-0933-48ae-b705-81570a8b5353.png']
+
+},
+
+{
+
+  id:2,
+
   name:'Sirocco',
+
   mat:'PLA Biosourcé',
+
   badge:'best',
-  desc:'Collection de vases torsadés aux lignes fluides inspirées du mouvement du vent et des dunes. Finition mate minimaliste. H 26cm, Ø 13cm.',
+
+  desc:'Vase torsadé aux lignes fluides inspirées du mouvement du vent et des dunes. Design minimaliste et finition noire satinée. H 26cm, Ø 13cm.',
+
   price:69,
+
   cat:'pla',
-  img:'https://cdn.phototourl.com/member/2026-05-12-e3b24b94-f9cf-48be-8460-108aa4ae4f8c.jpg',
+
+  img:'https://cdn.phototourl.com/free/2026-05-12-80f97751-dc57-43b1-9fc3-c32c0b961d19.png',
+
   dims:'H 26cm, Ø 13cm',
+
   poids:'320g',
+
   matiere:'PLA biosourcé premium',
+
   temps:'7h d\'impression',
+
   edition:'Collection Signature',
+
   stock:18,
-  desc_long:'Sirocco capture le mouvement à travers une série de lignes torsadées qui enveloppent délicatement la silhouette du vase. Son design fluide évoque les courants d’air chauds et les ondulations naturelles du sable sculpté par le vent. Élégant et intemporel, il apporte une présence douce et architecturale aux intérieurs contemporains.',
-  story:'Dessiné comme une interprétation moderne des formes organiques naturelles, Sirocco est né d’expérimentations autour du rythme et de la répétition visuelle. Les courbes ont été ajustées une à une afin de créer une sensation de mouvement continu et harmonieux.',
-  imgs:['https://cdn.phototourl.com/member/2026-05-12-e3b24b94-f9cf-48be-8460-108aa4ae4f8c.jpg']
+
+  desc_long:'Sirocco capture le mouvement à travers une silhouette dynamique composée de courbes continues qui enveloppent délicatement la forme centrale. Son design fluide évoque les courants d’air et les dunes sculptées par le vent, créant une esthétique douce et contemporaine.',
+
+  story:'Pensé comme une interprétation moderne des forces naturelles invisibles, Sirocco explore la fluidité et le rythme visuel grâce à un travail précis sur les torsions et les lignes continues.',
+
+  imgs:['https://cdn.phototourl.com/free/2026-05-12-80f97751-dc57-43b1-9fc3-c32c0b961d19.png']
+
 },
+
 {
-  id:5,
-  name:'Aether',
-  mat:'Résine Premium',
-  badge:'new',
-  desc:'Vase asymétrique futuriste aux courbes fluides et minimalistes. Sculpture décorative inspirée du mouvement et de l’équilibre. H 31cm, Ø 16cm.',
-  price:119,
-  cat:'resine',
-  img:'https://cdn.phototourl.com/member/2026-05-12-f7a5ed60-dd7e-4c3e-8ec5-32d399927b2e.jpg',
-  dims:'H 31cm, Ø 16cm',
-  poids:'520g',
-  matiere:'Résine premium satinée',
-  temps:'14h d\'impression',
-  edition:'Série Atelier — 40 exemplaires',
-  stock:6,
-  desc_long:'Aether explore la fluidité à travers une silhouette asymétrique aux lignes tendues et élégantes. Son design semble défier l’équilibre traditionnel pour créer une présence sculpturale aérienne et sophistiquée. Chaque angle révèle une nouvelle perspective, faisant du vase une véritable pièce d’expression contemporaine.',
-  story:'Inspiré des concepts de mouvement perpétuel et d’équilibre dynamique, Aether a nécessité plusieurs semaines de recherche géométrique avant d’atteindre sa forme finale. L’objectif était de créer une sensation de légèreté presque impossible à reproduire dans une matière solide.',
-  imgs:['https://cdn.phototourl.com/member/2026-05-12-f7a5ed60-dd7e-4c3e-8ec5-32d399927b2e.jpg']
-},
-{
-  id:6,
+
+  id:3,
+
   name:'Velora',
+
   mat:'PLA Biosourcé',
+
   badge:'new',
-  desc:'Vase architectural aux reliefs ondulés inspirés des textiles et des formes naturelles. Élégance minimaliste et finition mate douce. H 29cm, Ø 15cm.',
+
+  desc:'Vase architectural aux reliefs ondulés inspirés des textiles et des formes organiques naturelles. Élégance douce et minimaliste. H 29cm, Ø 15cm.',
+
   price:74,
+
   cat:'pla',
-  img:'https://cdn.phototourl.com/member/2026-05-12-2a26999d-c242-4d8b-89c2-53eb1c128fb1.jpg',
+
+  img:'https://cdn.phototourl.com/free/2026-05-12-cf138eef-cd36-47b6-a78e-4b0a37c7ad2f.png',
+
   dims:'H 29cm, Ø 15cm',
+
   poids:'360g',
+
   matiere:'PLA biosourcé mat',
+
   temps:'9h d\'impression',
+
   edition:'Édition Limitée — 70 exemplaires',
+
   stock:13,
-  desc_long:'Velora se distingue par une surface ondulée douce et répétitive qui crée un jeu subtil entre lumière et relief. Sa silhouette généreuse et équilibrée apporte une présence calme et raffinée aux espaces modernes. Chaque pièce est imprimée avec précision afin d’obtenir une texture régulière et hypnotique.',
-  story:'Né d’une étude sur les mouvements du textile et des plis naturels, Velora transforme une simple répétition géométrique en élément décoratif vivant. Les ondulations ont été conçues pour donner l’impression que la matière est en mouvement permanent.',
-  imgs:['https://cdn.phototourl.com/member/2026-05-12-2a26999d-c242-4d8b-89c2-53eb1c128fb1.jpg']
+
+  desc_long:'Velora se distingue par une texture répétitive aux ondulations verticales qui créent un équilibre subtil entre douceur et structure. Sa silhouette généreuse diffuse élégamment la lumière et apporte une présence raffinée aux espaces contemporains.',
+
+  story:'Inspiré des plis du textile et des mouvements naturels de la matière, Velora a été imaginé pour transformer une géométrie répétitive en une sculpture décorative calme et hypnotique.',
+
+  imgs:['https://cdn.phototourl.com/free/2026-05-12-cf138eef-cd36-47b6-a78e-4b0a37c7ad2f.png']
+
 },
+
 {
-  id:7,
-  name:'Nyx',
+
+  id:4,
+
+  name:'Aether',
+
   mat:'Résine Premium',
+
+  badge:'exclusive',
+
+  desc:'Sculpture florale futuriste aux lignes asymétriques et fluides. Pièce décorative inspirée du mouvement et de l’équilibre. H 31cm, Ø 16cm.',
+
+  price:119,
+
+  cat:'resine',
+
+  img:'https://cdn.phototourl.com/free/2026-05-12-eb5fb62a-5fb2-44dc-92d2-2e464bdb42ed.png',
+
+  dims:'H 31cm, Ø 16cm',
+
+  poids:'520g',
+
+  matiere:'Résine premium satinée',
+
+  temps:'14h d\'impression',
+
+  edition:'Série Atelier — 40 exemplaires',
+
+  stock:6,
+
+  desc_long:'Aether explore la légèreté à travers une structure ouverte aux courbes tendues et élégantes. Son design sculptural semble suspendu dans l’espace, créant une sensation d’équilibre impossible entre vide et matière.',
+
+  story:'Né d’une recherche autour du mouvement perpétuel et de l’illusion visuelle, Aether a nécessité plusieurs semaines de modélisation afin d’obtenir une silhouette parfaitement équilibrée sous tous les angles.',
+
+  imgs:['https://cdn.phototourl.com/free/2026-05-12-eb5fb62a-5fb2-44dc-92d2-2e464bdb42ed.png']
+
+},
+
+{
+
+  id:5,
+
+  name:'Obsidian Bloom',
+
+  mat:'PLA Biosourcé',
+
+  badge:'new',
+
+  desc:'Vase sculptural aux cavités organiques inspirées des formations minérales naturelles. Texture noire mate profonde et silhouette contemporaine. H 30cm, Ø 14cm.',
+
+  price:89,
+
+  cat:'pla',
+
+  img:'https://cdn.phototourl.com/free/2026-05-12-ae9ea816-8405-438c-b60d-3dba4b451403.png',
+
+  dims:'H 30cm, Ø 14cm',
+
+  poids:'410g',
+
+  matiere:'PLA biosourcé mat',
+
+  temps:'10h d\'impression',
+
+  edition:'Édition Atelier — 60 exemplaires',
+
+  stock:11,
+
+  desc_long:'Obsidian Bloom joue avec les pleins et les vides à travers une structure sculptée rappelant une roche façonnée par le temps. Ses reliefs organiques accentuent la profondeur et donnent au vase une présence forte et sophistiquée.',
+
+  story:'Inspiré des textures volcaniques et des formations géologiques naturelles, Obsidian Bloom a été pensé comme une fusion entre brutalité minérale et élégance contemporaine.',
+
+  imgs:['https://cdn.phototourl.com/free/2026-05-12-ae9ea816-8405-438c-b60d-3dba4b451403.png']
+
+},
+
+{
+
+  id:6,
+
+  name:'Eclipse',
+
+  mat:'PLA Biosourcé',
+
+  badge:'signature',
+
+  desc:'Collection de vases torsadés aux lignes verticales hypnotiques et silhouette contemporaine équilibrée. H 30cm, Ø 14cm.',
+
+  price:84,
+
+  cat:'pla',
+
+  img:'https://cdn.phototourl.com/free/2026-05-12-7491ac56-5e23-48d3-aeb6-46de1498ed7d.png',
+
+  dims:'H 30cm, Ø 14cm',
+
+  poids:'390g',
+
+  matiere:'PLA biosourcé premium',
+
+  temps:'9h d\'impression',
+
+  edition:'Collection Atelier',
+
+  stock:15,
+
+  desc_long:'Eclipse revisite les formes classiques du vase à travers une structure torsadée composée de lignes continues et harmonieuses. Son design crée un effet visuel fluide qui change selon l’angle et la lumière.',
+
+  story:'Conçu comme une exploration du rythme et de la répétition géométrique, Eclipse transforme une simple courbe en une pièce décorative architecturale et immersive.',
+
+  imgs:['https://cdn.phototourl.com/free/2026-05-12-7491ac56-5e23-48d3-aeb6-46de1498ed7d.png']
+
+},
+
+{
+
+  id:7,
+
+  name:'Eden Loop',
+
+  mat:'Résine Premium',
+
   badge:'best',
 
-  desc:'Vase sculptural ouvert aux lignes fluides et aériennes. Design contemporain inspiré du vide et du mouvement. H 33cm, Ø 18cm.',
+  desc:'Fontaine sculpturale minimaliste inspirée des jardins zen japonais. Écoulement d’eau silencieux et structure texturée noire mate. H 32cm, Ø 18cm.',
 
-  price:139,
+  price:129,
+
   cat:'resine',
 
-  img:'URL_IMAGE',
+  img:'https://cdn.phototourl.com/free/2026-05-12-ded2f0c6-108d-4d58-a4cf-72e2c3994ffa.png',
 
-  dims:'H 33cm, Ø 18cm',
-  poids:'590g',
-  matiere:'Résine premium noire satinée',
-  temps:'16h d\'impression',
-  edition:'Pièce Signature — 30 exemplaires',
-  stock:4,
+  dims:'H 32cm, Ø 18cm',
 
-  desc_long:'Nyx transforme le vide en élément central du design à travers une silhouette ouverte et sculpturale. Ses courbes fluides semblent flotter dans l’espace et créent une esthétique minimaliste presque hypnotique. Pensé comme une œuvre décorative autant qu’un vase, il apporte une dimension artistique forte à n’importe quel intérieur.',
+  poids:'480g',
 
-  story:'Inspiré par les sculptures contemporaines et les formes impossibles, Nyx a été développé autour de l’idée d’une structure continue sans véritable début ni fin. Chaque courbe a été optimisée pour créer une impression de mouvement fluide et naturel malgré la rigidité de la matière.',
+  matiere:'Résine premium texturée',
 
-  imgs:['URL_IMAGE']
-},
+  temps:'12h d\'impression',
+
+  edition:'Bestseller — 50 ex. par saison',
+
+  stock:7,
+
+  desc_long:'Eden Loop transforme l’eau en élément architectural vivant grâce à une structure circulaire minimaliste pensée pour créer un flux continu et apaisant. Son design zen apporte calme et profondeur aux espaces modernes.',
+
+  story:'Inspirée des jardins japonais et du mouvement perpétuel de l’eau, Eden Loop a été imaginée comme une sculpture méditative mêlant nature, matière et équilibre visuel.',
+
+  imgs:['https://cdn.phototourl.com/free/2026-05-12-ded2f0c6-108d-4d58-a4cf-72e2c3994ffa.png']
+
+}
+
+];
   { id:8, name:'Celadon', mat:'PLA Vert Céladon', badge:null, desc:'PLA vert céladon satiné, inspiration poterie Song. H 20cm, Ø 10cm.', price:59, cat:'pla', img:'',
     dims:'H 20cm, Ø 10cm', poids:'210g', matiere:'PLA vert céladon satiné', temps:'6h d\'impression', edition:'Collection permanente', stock:35,
     desc_long:'Le plus délicat de notre collection. Celadon s\'inspire des céladons de la dynastie Song chinoise, réinterprétés par l\'impression 3D. Sa teinte verte tirant vers le gris évoque la sérénité des jardins zen.',
